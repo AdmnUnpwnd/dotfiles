@@ -1,0 +1,104 @@
+
+-- http://www.linuxandlife.com/2011/11/how-to-configure-xmonad-arch-linux.html
+-- http://pastebin.com/vvtZKAgw
+
+import XMonad
+import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
+import XMonad.Layout.PerWorkspace
+
+-- Key Configurations
+import XMonad.Util.EZConfig
+import qualified Data.Map as M
+import qualified XMonad.StackSet as W
+
+-- For Fn keys
+-- import Graphics.X11.ExtraTypes.XF86
+
+-- For xmobar
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Util.Run
+import System.IO
+
+audLayout = avoidStruts
+	$ smartBorders
+	
+	$ tiled ||| Mirror tiled ||| Full
+	
+	where
+		-- default tiling algorithm partitions the screen into two panes
+		tiled = spacing 5 $ Tall nmaster delta ratio
+		
+        -- golden = Tall nmaster delta goldenRatio
+	
+		-- The default number of windows in the master pane
+		nmaster = 1
+	
+		-- Default proportion of screen occupied by master pane
+		ratio = 2/3
+	
+		-- Percent of screen to increment by when resizing panes
+		delta = 5/100
+		
+		goldenRatio = 6/10 -- sic
+		
+        -- horizontal = Mirror tiled
+        
+		
+-- Define amount and names of workspaces
+audWorkspaces = ["1:main","2:chat","3","whatever","5:media","6","7","8:web"]
+
+
+-- Define layout for specific workspaces
+nobordersLayout = noBorders $ Full
+
+-- Put all layouts together
+-- audLayout = onWorkspace "2:chat" nobordersLayout $ defaultLayouts
+
+
+-- audManageHook = composeAll [
+		-- Attach some applications for specific workspaces.
+		-- That means when you open an app, xmonad will automatically move it to a defined workspace. 
+		-- className =? "Iron" --> doShift "8:web",
+		-- className =? "Xchat" --> doShift "2:chat"
+		-- If you dont want xmonad to tile some applications,
+		-- you can do add the following lines to the myManageHook like this:
+		-- className =? "Gimp" --> doFloat,
+		-- className =? "Gnome-player" --> doFloat
+	-- ]
+
+-- Note: to know the className of an app,
+-- you can run the command "xprop" on the terminal,
+-- the cursor will change to the crosshair shape then use this crosshair
+-- to click on the app. The className of this app will appear on the terminal afterward.
+
+
+-- keysToAdd x = [((modMask, xK_p), spawn "exe=`dmenu_run -b -nb black -nf yellow -sf yellow` && eval \"exec $exe\""), ((mod4Mask , xK_Up), W.swapUp), ((mod4Mask , xK_Down), W.swapDown), ((mod4Mask , xK_Left), W.swapLeft), ((mod4Mask , xK_Right), W.swapRight)]
+-- keysToAdd x = [((modMask, xK_p), spawn "exe=`dmenu_run -b -nb black -nf yellow -sf yellow` && eval \"exec $exe\""), ((mod4Mask , xK_Up), W.swapUp), ((mod4Mask , xK_Down), W.swapDown)]
+
+-- keysToDel x = [((mod4Mask .|. shiftMask), xK_c)]
+
+-- newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x)) -- to include new keys to existing keys
+
+-- audKeys x = foldr M.delete (newKeys x) (keysToDel x) -- to delete the unused keys
+-- audKeys x = foldr (newKeys x)
+
+main = do
+	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
+	xmonad $ defaultConfig {
+		layoutHook = audLayout,
+		-- layoutHook = avoidStruts $ layoutHook defaultConfig,
+		-- workspaces = audWorkspaces,
+		-- manageHook = audManageHook <+> manageHook defaultConfig,
+		logHook = dynamicLogWithPP xmobarPP {
+			ppOutput = hPutStrLn xmproc,
+			ppTitle = xmobarColor "blue" "" . shorten 50,
+			ppLayout = const "" -- to disable the layout info on xmobar
+		},
+		-- keys = audKeys,
+		borderWidth = 2,
+		normalBorderColor = "#ABC123",
+		focusedBorderColor = "#456DEF"
+	}
+

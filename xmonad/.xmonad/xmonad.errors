@@ -1,0 +1,56 @@
+
+xmonad.hs:92:26: warning: [-Wtabs]
+    Tab character found here, and in 599 further locations.
+    Please use spaces instead.
+   |
+92 | colorBlack    = "#1A1A1A"       -- Background (Dzen BG)
+   |                          ^^^^^^^
+
+xmonad.hs:113:14: warning: [-Wdeprecations]
+    In the use of ‘defaultTheme’
+    (imported from XMonad.Layout.Tabbed, but defined in XMonad.Layout.Decoration):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Layout.Decoration) instead."
+    |
+113 | myTabTheme = defaultTheme {
+    |              ^^^^^^^^^^^^
+
+xmonad.hs:127:14: warning: [-Wdeprecations]
+    In the use of ‘defaultXPConfig’ (imported from XMonad.Prompt):
+    Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Prompt) instead."
+    |
+127 | myXPConfig = defaultXPConfig {
+    |              ^^^^^^^^^^^^^^^
+
+xmonad.hs:288:34: warning: [-Wdeprecations]
+    In the use of ‘defaultPP’ (imported from XMonad.Hooks.DynamicLog):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Hooks.DynamicLog) instead."
+    |
+288 | myLogHook h = dynamicLogWithPP $ defaultPP {
+    |                                  ^^^^^^^^^
+
+xmonad.hs:290:89: warning: [-Wdeprecations]
+    In the use of ‘defaultPP’ (imported from XMonad.Hooks.DynamicLog):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Hooks.DynamicLog) instead."
+    |
+290 |                 , ppSort            = fmap (namedScratchpadFilterOutWorkspace.) (ppSort defaultPP)      -- Hide "NSP" from workspace list
+    |                                                                                         ^^^^^^^^^
+
+xmonad.hs:397:88: warning: [-Woverflowed-literals]
+    Literal -30 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+397 |                 , ((modMask .|. controlMask, xK_Left), withFocused (keysResizeWindow (-30, 0) (0,0)))   -- Shrink floated window horizontally
+    |                                                                                        ^^
+
+xmonad.hs:399:89: warning: [-Woverflowed-literals]
+    Literal -30 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+399 |                 , ((modMask .|. controlMask, xK_Up), withFocused (keysResizeWindow (0, -30) (0,0)))             -- Shrink floated window horizontally
+    |                                                                                         ^^
+
+xmonad.hs:475:34: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+    |
+475 |         xmonad $ myUrgencyHook $ defaultConfig {
+    |                                  ^^^^^^^^^^^^^

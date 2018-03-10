@@ -1,0 +1,27 @@
+
+*.pyc
+
+fbcmd/
+
+!mpd/.mpd/mpd.conf
+!mpd/.config/mpd.conf.bak
+mpd/.mpd/
+mpd/.config/
+
+ranger/.config/ranger/__pycache__/
+
+spacemacs/.cabal/
+spacemacs/.emacs.d/.cache/
+spacemacs/.emacs.d/emms/cache
+
+# vim/.vim/bundle/.neobundle/install_info
+vim/.vim/bundle/YouCompleteMe/third_party/
+
+xmonad/.xmonad/xmonad-contrib-git/
+xmonad/.xmonad/.stack-work/
+xmonad/.xmonad/xmonad-git/
+xmonad/.xmonad/xmobar-git/
+
+zsh/.oh-my-zsh/cache/
+# zsh/.antigen/revert-info
+

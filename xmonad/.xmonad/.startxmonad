@@ -1,0 +1,22 @@
+
+# http://blog.wheerd.de/2012/06/14/xmonad-with-dzen-and-conky/
+# http://michaelheap.com/using-a-custom-startup-script-for-xmonad/
+
+ck-launch-session &
+
+nm-applet &
+
+xsetroot -cursor_name left_ptr
+
+~/.xmonad/wallpaper.sh &
+
+# xmonad	# Use this only when calling from xmonad.start in which case disable the 'init' from xmonad.hs
+
+# Fonts
+xset +fp ~/.fonts
+xset +fp /usr/share/fonts/local
+xset +fp /usr/share/fonts/ttf
+xset fp rehash
+
+# redshift
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+(cd ~/.i3/i3-blocks-contrib && git pull --rebase)
+(cd ~/.i3/i3blocks-contrib && git pull --rebase)
+

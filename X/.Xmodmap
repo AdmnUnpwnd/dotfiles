@@ -1,0 +1,9 @@
+
+! Use xev to determine keymapping
+
+! Change the keys Button 1 and Button 10
+! Note that it is not possible to have two keys of the same type
+! All keys must be present exactly once (except 0, which is the NULL key)
+! pointer = 10 2 3 4 5 7 6 8 9 1 11 12
+pointer = 1 2 3 4 5 7 6 8 9 10 11 12
+

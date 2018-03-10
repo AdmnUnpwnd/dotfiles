@@ -1,0 +1,6 @@
+#!/bin/sh
+
+(cd ~/.xmonad/xmonad-git && git pull --rebase)
+(cd ~/.xmonad/xmonad-contrib-git && git pull --rebase)
+(cd ~/.xmonad/xmobar-git && git pull --rebase)
+

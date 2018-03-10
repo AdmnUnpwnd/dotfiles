@@ -1,0 +1,76 @@
+
+!!  Fonts
+xterm.VT100.renderFont: true
+xterm.VT100.faceName: Dejavu Sans Mono
+xterm.VT100.faceSize: 10
+ 
+xterm*geometry:   87x28
+ 
+!!  Colors  !!
+ 
+!!  Dunzor
+xterm*background: #000000
+xterm*foreground: #AAAAAA
+ 
+!!  Zenburn
+!xterm*background: #45403D
+!xterm*foreground: #D9C2B4
+ 
+!!Darkburn
+!xterm*background: #1A1817
+!xterm*foreground: #B5927D
+ 
+!!  Display utf8 symbols
+xterm*utf8: 1
+ 
+!black
+*color0:     #313940
+*color8:     #8D9296
+!red
+*color1:     #C90B08
+*color9:     #FF0000
+!green
+*color2:     #00BA00
+*color10:    #00FF00
+!yellow
+*color3:     #FFEE00
+*color11:    #FFF78A
+!blue
+*color4:     #4043FF
+*color12:    #808AFF
+!magenta
+*color5:     #BF00BF
+*color13:    #FF03FF
+!cyan
+*color6:     #00C7C7
+*color14:    #00FFFF
+!white
+*color7:     #E0E0E0
+*color15:    #FFFFFF
+ 
+ 
+ 
+!!  URxvt Settings  !!
+ 
+! Urxvt settings
+URxvt.depth: 32
+ 
+!Dunzor
+!URxvt.background: [85] #000000
+!URxvt.foreground: #AAAAAA
+ 
+!Zenburn
+Urxvt.background: [85] #1A1817
+Urxvt.foreground: #B5927D
+ 
+URxvt.scrollBar: false
+URxvt.imLocale: pt_en_US.utf8
+ 
+URxvt.perl-ext-common:      default,matcher
+URxvt.url-select.launcher:  /usr/bin/luakit
+URxvt.url-select.underline: true
+URxvt.matcher.button:       1
+ 
+URxvt.font: xft:Dejavu Sans Mono:italic:pixelsize=12:antialais=true:hinting=true
+URxvt.geometry:             100x35
+
